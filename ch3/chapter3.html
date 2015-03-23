@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<title>CSUCI > IT380 - Assignments</title>
+<body>
+	<h1>Chapter 3</h1>
+	<h2>Exercises</h2>
+	<p>
+		<h2>3.3</h2> <br/>
+		a) autofocus. <br/>
+		b) self validating. <br/>
+		c) number. <br/>
+		d) range input. <br/>
+		e) autocomplete. <br/>
+		f) figcaption. <br/>
+		g) details. <br/>
+		h) highlight text.
+	</p>
+	<p>
+		<h2>3.4</h2> <br/>
+		a) False. The user can enter a hexadecamal code or a color name. <br/>
+		b) True. <br/>
+		c) False. HTML5 does not check whether an e-mail address entered by the user actually exists, rather it just validates that the e-mail address is in the proper format. <br/>
+		d) True. <br/>
+		e) False. You can enable autocomplete for an entire form or just for specific elements. <br/>
+		f) False. The time input type enables the user to enter an hour, minute, seconds and fraction of second. <br/>
+		g) False. The figcaption element provides a caption for the image in a figure element. <br/>
+		h) False. The summary element displays a right-pointing arrow next to a summary or caption when the document is rendered in a browser. When clicked, the arrow points downward and reveals the content in the details element. <br/>
+		i) True. <br/>
+		j) False. The mark element enables you to hilight text.
+	</p>
+	<p>
+		<h2>3.5</h2> <br/>
+		a) 0 <meter min="0" max="10" value="7"></meter> 10 <br/>
+		b) <details>
+				<summary>Survey Results</summary>
+				<p>
+					Students were asked to rate the food in the cafeteria on a scale of 1 to 10.
+				</p>
+			</details> <br/>
+		c) <label>First Name:
+				<input type="text" id="iFirstName" autofocus />
+			</label> <br/>
+		d) <input type="text" id="iFirstName_2" autofocus placeholder="First name" /> <br/>
+		e) <label for="txtList">State:
+				<input type="text" id="txtList" autocomplete="on" placeholder="Select a state"
+					list="dlStates" />
+				<datalist id="dlStates">
+					<option value="California">
+					<option value="Oregon">
+					<option value="Nevada">
+					<option value="Colorado">
+					<option value="Idaho">
+				</datalist>
+			</label> <br/>
+		f) <label>Range:
+				1 <input type="range" min="1" max="100" value="50" /> 100
+	  		</label> <br/>
+	  	g) &lt;form method = "post" autocomplete = "off"&gt; <br/>
+	  	h) Students were asked to rate the food in the cafeteria on a scale of 1 to 10. <mark>The average result was 7.</mark>
+	</p>
+	<p>
+		<h2><a href="ch3_3.6.html">3.6</a></h2>
+	</p>
+	<p>
+		<h2><a href="ch3_3.7.html">3.7</a></h2>
+	</p>
+	<p>
+		<h2>3.8</h2> <br/>
+		<label for="txtDay">Day:
+			<input type="text" id="txtDay" placeholder="Select a day" list="dlDays" 
+				autocomplete="on"/>
+			<datalist id="dlDays">
+				<option value="Sunday"></option>
+				<option value="Monday"></option>
+				<option value="Tuesday"></option>
+				<option value="Wednesday"></option>
+				<option value="Thursday"></option>
+				<option value="Friday"></option>
+				<option value="Saturday"></option>
+			</datalist>
+		</label>
+	</p>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>CSUCI > IT380 - Assignments</title>
+	</head>
+	<body>
+		<h1>Chapter 8</h1>
+		<h2>Exercises</h2>
+		<p>
+			<h2>8.1</h2>
+			a) False. The default case is optional. <br/>
+			b) False. The break statement is used to exit the switch statement. The last case does not need a break statement. <br/>
+			c) False. Both of the expressions must be true for the whole expression to be true when using the &amp;&amp; operator. <br/>
+			d) True.
+		</p>
+		<p>
+			<h2>8.2</h2>
+			a) sum = 0; <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;for(count = 1; count <= 99; count+= 2) <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sum += count; <br/>
+			b) Math.pow(2.5, 3) <br/>
+			c) x = 1; <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;document.writeln("&lt;p&gt;"); <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;while(x <= 20) { <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.write(x + " "); <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(x % 5 == 0) <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.write("&lt;/p&gt;&lt;p&gt;"); <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;++x; <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;} <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;document.writeln("&lt;/p&gt;"); <br/>
+			d) document.writeln("&lt;p&gt;"); <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;for(x = 1; x <= 20; x++) { <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.write(x + " "); <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(x % 5 == 0) <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.write("&lt;/p&gt;&lt;p&gt;"); <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;} <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;document.writeln("&lt;/p&gt;");
+		</p>
+		<p>
+			<h2>8.3</h2>
+			a) Error: The semicolon after the while statement causes an infinite loop. <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;Correction: The semicolon should be replaced by an opening curly brace, or both the semicolon and the closing curly brace should be removed. <br/>
+			b) Error: Missing break statement in the first case. <br/>	
+&nbsp;&nbsp;&nbsp;&nbsp;Correction: Add a break statement at the end of the statements for the first case. <br/>
+			c) Error: The while statement is evaluating with the wrong relational operator. <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;Correction: Use &lt;= instead of &lt;.		
+		</p>
+		<p>
+			<h2>8.4</h2>
+			a) Error: The for statement causes and infinite loop as x is always larger than 1. Also, commas are used in the for statement instead of semicolons. <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;Correction: Use --x instead of ++x in the for statement, and replace the commas with semicolons <br/>
+			b) Error: Missing break statement in the first case. <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;Correction: Add a break statement at the end of the statements for the first case. <br/>
+			c) Error: The for statement causes an infinite loop as x is always larger than 1. <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;Correction: Use x -= 2 instead of x += 2 in the for statement. <br/>
+			d) Error: The while statement uses the wrong relational operator so that 100 is never printed. <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;Correction: Use &lt;= instead of &lt;.
+		</p>
+		<p>
+			<h2>8.5</h2>
+			The script creates a table with 7 rows and 5 columns. At each column for each row the coordinates of the (row,column) are displayed.
+		</p>
+		<p>
+			<h2>8.6</h2>
+			<img src="ch8_8.6Script.jpg">
+		</p>
+		<p>
+			<h2>8.7</h2>
+			<img src="ch8_8.7Script.jpg">
+		</p>
+	</body>
+</html>

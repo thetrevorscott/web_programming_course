@@ -1,0 +1,40 @@
+<?xml version = "1.0"?>
+<schema xmlns = "http://www.w3.org/2001/XMLSchema">
+	<element name = "nutrition_facts" type = "Facts"/>
+
+	<complexType name = "Facts">
+		<sequence>
+			<element name = "name" type = "string"/>
+			<element name = "serving_size" type = "string"/>
+			<element name = "calories" type = "Calories_split"/>
+			<element name = "fat" type = "Fat-split"/>
+			<element name = "cholesterol" type = "string"/>
+			<element name = "sodium" type = "string"/>
+			<element name = "carbohydrates" type = "Carbs_split"/>
+			<element name = "protein" type = "string"/>
+		</sequence>
+	</complexType>
+
+	<complexType name = "Calories_split">
+		<sequence>
+			<element name = "value" type = "int"/>
+			<element name = "fat_calories" type = "int"/>
+		</sequence>
+	</complexType>			
+
+	<complexType name = "Fat_split">
+		<sequence>
+			<element name = "total" type = "string"/>
+			<element name = "saturated" type = "string"/>
+		</sequence>
+	</complexType>
+
+	<complexType name = "Carbs_split">
+		<sequence>
+			<element name = "total_carbs" type = "string"/>
+			<element name = "fiber" type = "string"/>
+			<element name = "sugars" type = "string"/>
+		</sequence>
+	</complexType>
+
+</schema>

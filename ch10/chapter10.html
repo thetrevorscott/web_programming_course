@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>CSUCI > IT380 - Assignments</title>
+	<style type="text/css">
+	.border { border: 2px ridge royalblue;
+		background-color: lightgrey;
+		width: 50%; }
+		.p, label { padding-left: 2px; }
+	</style>
+	<script type="text/javascript">
+		var counters = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+		function start()
+		{
+			var button = document.getElementById("btnSubmit");
+			button.addEventListener("click", calcSal, false);
+			updateCountTable();
+		}
+
+		function calcSal()
+		{
+			var inputField = document.getElementById("grossInput");
+			var gross = parseFloat(inputField.value);
+			(document.getElementById("result")).innerHTML = "gross = " + gross;
+			var salary = 200 + (gross * 0.09);
+			document.getElementById("result").innerHTML = ("Salary = $" + salary);
+			tallySalary(salary);
+			updateCountTable();
+		}
+
+		function tallySalary( salary )
+		{
+			if (salary < 300)
+				counters[0]++;
+			else if (salary < 400)
+				counters[1]++;
+			else if (salary < 500)
+				counters[2]++;
+			else if (salary < 600) 
+				counters[3]++;
+			else if (salary < 700)
+				counters[4]++;
+			else if (salary < 800)
+				counters[5]++;
+			else if (salary < 900)
+				counters[6]++;
+			else if (salary < 1000)
+				counters[7]++;
+			else
+				counters[8]++;
+		}
+
+		function updateCountTable()
+		{
+			var results = "<table><caption>Number of Employees in Salary Ranges</caption>" + "<thead><th>Range</th><th></th><th>Employees</th></thead><tbody>";
+
+			var rangeLow = 200;
+			var rangeHigh = 299;
+			for (var i = 0; i < 8; i++)
+			{
+				results += "<tr><td>$" + rangeLow + "-" + rangeHigh + "</td><td></td><td>" + counters[i] + "</td></tr>";
+				rangeLow += 100;
+				rangeHigh += 100;
+			}
+			results += "<tr><td>$1000 and over</td><td></td><td>" + counters[8] + "</td><tr></tbody></table>";
+			document.getElementById("countTableDiv").innerHTML = results;
+		}
+
+		window.addEventListener( "load", start, false);
+		</script>
+	</head>
+	<body>
+		<h1>Chapter 10</h1>
+		<h2>Exercises</h2>
+		<p>
+			<h2>10.1</h2>
+			a) arrays. <br/>
+			b) index. <br/>
+			c) sorting. <br/>
+			d) searching. <br/>
+			e) two-dimensional.
+		</p>
+		<p>
+			<h2>10.2</h2>
+			a) True. <br/>
+			b) False. An array index must be an integer or an integer expression. <br/>
+			c) False. Only if a reference to an array is passed will modifications to the elements of the array be reflected in the original element of the array. Also, if an individual element of an object type passed to a function is passed by reference, and changes to the object will be reflected in the original array element.
+		</p>
+		<p>
+			<h2>10.3</h2>
+			a) var fractions = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]; <br/>
+			b) fractions[3] <br/>
+			c) fractions[4] <br/>
+			d) fractions[9] = 1.667; <br/>
+			e) freactions[6] = 3.333; <br/>
+			f) var total = 0; <br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;for (var x in fractions) <br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;{ <br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;total += fractions[x]; <br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;}
+		</p>
+		<p>
+			<h2>10.4</h2>
+			a) var table = new Array(new Array(3), new Array(3), new Array(3)); <br/>
+			b) var totalElements = table.length * table[0].length; <br/>
+			c) for (var x in table) <br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;{ <br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for (var y in table[x]) <br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ <br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;table[x][y] = x + y; <br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} <br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;}
+		</p>
+		<p>
+			<h2>10.5</h2>
+			a) Error: References an array element outside the bounds of the array. <br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;Correction: Change the &lt;= operator to &lt;. <br/>
+			b) Error: The array indexing is done incorrectly. <br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;Corrections: Change the statement to a[1][1] = 5;.
+		</p>
+		<p>
+			<h2>10.6</h2>
+			a) arrays. <br/>
+			b) p[0], p[1], p[2] and p[3]. <br/>
+			c) row, column. <br/>
+			d) m, n, m * n. <br/>
+			e) d[3][5]. <br/>
+		</p>
+		<p>
+			<h2>10.7</h2>
+			a) False. We specify the name of the array and the index of the element in square braces. <br/>
+			b) False. To reserve space for an array we must use the "new" operator and specify the size of the array we want allocated. <br/>
+			c) False. To declare an array we must use the new operator followed by the object type and specification of the size. The statement would be: var p = new Array(100). <br/>
+			d) False. The elements of an array can be initialized in the declaration by indicating each value in the paranthesis after the Array object type specifier. <br/>
+			e) True.
+		</p>
+		<p>
+			<h2>10.8</h2>
+			a) document.write(f[7]); <br/>
+			b) g = new Array(0, 0, 0, 0, 0); <br/>
+			c) var total = 0; <br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;for (var x in c) <br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;{ <br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;total += c[x]; <br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;} <br/>
+			d) for (var i = 0; i &lt; a.length; i++) <br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;{ <br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b[i] = a[i]; <br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;} <br/>
+			e) w.sort( compareFloats ); <br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;function compareFloats( value1, value2 ) <br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;{ <br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return parseFloat(value1) - parseFloat(value2); <br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;} <br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;document.writeln("Smallest = " + w[0] + ", Largest = " + w[98]);
+		</p>
+		<p>
+			<h2>10.9</h2>
+			a) var t = new Array(new Array(3), new Array(3)); <br/>
+			b) 2. <br/>
+			c) 3. <br/>
+			d) 6. <br/>
+			e) t[0][0], t[0][1], t[0][2]. <br/>
+			f) t[2][0], t[2][1]. <br/>
+			g) t[0][1] = 0; <br/>
+			h) t[0][0] = 0; <br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;t[0][1] = 0; <br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;t[0][2] = 0; <br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;t[1][0] = 0; <br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;t[1][1] = 0; <br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;t[1][2] = 0; <br/>
+			i) for (var x in t) <br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;{ <br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for (var y in t[x]) <br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ <br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t[x][y] = 0; <br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+			&nbsp;&nbsp;&nbsp;&nbsp;} <br/>
+			j) t[0].sort( compareInts ); <br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;t[1].sort( compareInts ); <br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;function compareInts( value1, value2 ) <br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;{ <br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return parseInt(value1) - parseInt(value2); <br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;} <br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;var smallest = 0; <br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;if(t[0][0] &lt; t[1][0]) <br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;smallest = t[0][0]; <br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;else <br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;smallest = t[1][0]; <br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;document.writeln("Smallest value = " + smallest); <br/>
+			k) document.writeln(t[0][0] + " " + t[0][1] + " " + t[0][2]); <br/>
+			l) document.writeln("&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;0&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;1&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;3&lt;br/&gt;"); <br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;for(var x in t) <br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;{ <br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.write(x + "&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;"); <br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for(var y in t[x]) <br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ <br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.write(t[x][y] + "&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;"); <br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} <br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.writeln("&lt;br/&gt;"); <br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;}
+		</p>
+		<p>
+			<h2>10.10</h2>
+			<img src="10.10.jpg">
+			<div class="border">
+				<form action="#">
+					<p>
+						<label>Gross Sales:
+							<input id="grossInput" type="number">
+						</label>
+						<input id="btnSubmit" type="button" value="Submit">
+					</p>
+				</form>
+				<p id="result"></p>
+				<div id="countTableDiv"></div>
+			</div>
+		</p>
+	</body>
+</html>

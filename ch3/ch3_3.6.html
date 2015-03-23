@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>3.6</title>
+	</head>
+
+	<body>
+		<h1>Website Registration Form with Optional Survey</h1>
+		<form method="post">
+			<p>
+				<label>First Name:
+					<input type="text" id="txtFirstName" />
+				</label>
+			</p>
+			<p>
+				<label>Last Name:
+					<input type="text" id="txtLastName" />
+				</label>
+			</p>
+			<p>
+				<label>Email:
+					<input type="email" id="txtEmail" />
+				</label>
+			</p>
+			<p>
+				<details>
+					<summary>Optional survey question</summary>
+					<label for="txtList">Year in college:
+						<input type="text" id="txtList" placeholder="Select year"
+							list="dlYear" />
+						<datalist id="dlYear">
+							<option value="Freshman">
+							<option value="Sophmore">
+							<option value="Junior">
+							<option value="Senior">
+						</datalist>
+					</label>
+				</details>
+			</p>
+			<p>
+				<input type="submit" value="Submit" />
+				<input type="reset" value="Clear" /> 
+			</p>
+		</form>
+	</body>
+</html>

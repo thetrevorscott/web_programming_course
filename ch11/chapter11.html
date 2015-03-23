@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>CSUCI > IT380 - Assignments</title>
+		<style type="text/css">
+			.border { border: 2px ridge royalblue;
+			background-color: lightgrey;
+			width: 30%; }
+			.p, input, label { margin-left: 2px; }
+		</style>
+		<script type="text/javascript">
+
+			function start()
+			{
+				var btnNow = document.getElementById("btnNow");
+				btnNow.addEventListener("click", displayNow, false);
+				var btnYesterday = document.getElementById("btnYesterday");
+				btnYesterday.addEventListener("click", displayYesterday, false);
+				var btnTenYearsAgo = document.getElementById("btnTenYearsAgo");
+				btnTenYearsAgo.addEventListener("click", displayTenYears, false);
+				var btnInOneWeek = document.getElementById("btnInOneWeek");
+				btnInOneWeek.addEventListener("click", displayOneWeek, false);
+
+				var strTest;
+				var testForm = document.getElementById("testForm");
+				strTest = "Math.abs(21.6) = " + Math.abs(21.6) +
+					"\nMath.abs(0.0) = " + Math.abs(0.0) +
+					"\nMath.abs(-21.6) = " + Math.abs(-21.6) +
+					"\nMath.ceil(6.3) = " + Math.ceil(6.3) + 
+					"\nMath.ceil(-6.7) = " + Math.ceil(-6.7) +
+					"\nMath.cos(0.0) = " + Math.cos(0.0) +
+					"\nMath.exp(1.0) = " + Math.exp(1.0) +
+					"\nMath.exp(2.0) = " + Math.exp(2.0) +
+					"\nMath.floor(6.3) = " + Math.floor(6.3) +
+					"\nMath.log(3.45) = " + Math.log(3.45) +
+					"\nMath.log(8.36) = " + Math.log(8.36) +
+					"\nMath.max(2.6, 12.8) = " + Math.max(2.6, 12.8) +
+					"\nMath.max(-2.6, -12.8) = " + Math.max(-2.6, -12.8) +
+					"\nMath.min(2.6, 12.8) = " + Math.min(2.6, 12.8) +
+					"\nMath.min(-2.6, -12.8) = " + Math.min(-2.6, -12.8) +
+					"\nMath.pow(3, 6) = " + Math.pow(3, 6) +
+					"\nMath.pow(8, 0.5) = " + Math.pow(8, 0.5) +
+					"\nMath.round(8.75) = " + Math.round(8.75) +
+					"\nMath.round(8.25) = " + Math.round(8.25) + 
+					"\nMath.sin(0.0) = " + Math.sin(0.0) +
+					"\nMath.sqrt(900.0) = " + Math.sqrt(900.0) +
+					"\nMath.sqrt(9.0) = " + Math.sqrt(9.0) +
+					"\nMath.tan(0.0) = " + Math.tan(0.0);
+				testForm.output.value = strTest;
+
+				var btnSubmit = document.getElementById("btnSubmit");
+				btnSubmit.addEventListener("click", round, false);
+
+				var btnSubmit2 = document.getElementById("btnSubmit2");
+				btnSubmit2.addEventListener("click", round2, false);
+
+				var btnCompare = document.getElementById("btnCompare");
+				btnCompare.addEventListener("click", compareStrings, false);
+			}
+
+			function displayNow()
+			{
+				var current = new Date();
+				window.alert("The current time and date: " + current);
+			}
+
+			function displayYesterday()
+			{
+				var yesterday = new Date();
+				yesterday.setTime(yesterday.valueOf() - (24 * 60 * 60 * 1000));
+				window.alert("Yesterday's time and date: " + yesterday);
+			}
+
+			function displayTenYears()
+			{
+				var tenYearsAgo = new Date();
+				tenYearsAgo.setTime(tenYearsAgo.valueOf() - (10 * 365 * 24 * 60 * 60 * 1000));
+				window.alert("Ten years ago time and date: " + tenYearsAgo);
+			}
+
+			function displayOneWeek()
+			{
+				var oneWeek = new Date();
+				oneWeek.setTime(oneWeek.valueOf() + (7 * 24 * 60 * 60 * 1000));
+				window.alert("One week from now time and date: " + oneWeek);
+			}
+
+			function round()
+			{
+				var inputField = document.getElementById("input");
+				var value = parseFloat(inputField.value);
+				var original = document.getElementById("lblOriginal");
+				original.innerHTML = "Original: " + value;
+				roundToInteger(value);
+				roundToTenths(value);
+				roundToHundredths(value);
+				roundToThousandths(value);
+			}
+
+			function roundToInteger(number)
+			{
+				var y = Math.floor(number + .5 );
+				var output = document.getElementById("lblInteger");
+				output.innerHTML = "Rounded to integer: " + y;
+			}
+
+			function roundToTenths(number)
+			{
+				var y = Math.floor(number * 10 + .5) / 10;
+				var output = document.getElementById("lblTenths");
+				output.innerHTML = "Rounded to tenths: " + y;
+			}
+
+			function roundToHundredths(number)
+			{
+				var y = Math.floor(number * 100 + .5) / 100;
+				var output = document.getElementById("lblHundredths");
+				output.innerHTML = "Rounded to hundredths: " + y;
+			}
+
+			function roundToThousandths(number)
+			{
+				var y = Math.floor(number * 1000 + .5) / 1000;
+				var output = document.getElementById("lblThousandths");
+				output.innerHTML = "Rounded to thousandths: " + y;
+			}
+
+			function round2()
+			{
+				var inputField = document.getElementById("input2");
+				var value = parseFloat(inputField.value);
+				var original = document.getElementById("lblOriginal2");
+				original.innerHTML = "Original: " + value;
+				roundToInteger2(value);
+				roundToTenths2(value);
+				roundToHundredths2(value);
+				roundToThousandths2(value);
+			}
+
+			function roundToInteger2(number)
+			{
+				var y = Math.round(number);
+				var output = document.getElementById("lblInteger2");
+				output.innerHTML = "Rounded to integer: " + y;
+			}
+
+			function roundToTenths2(number)
+			{
+				var y = Math.round(number * 10) / 10;
+				var output = document.getElementById("lblTenths2");
+				output.innerHTML = "Rounded to tenths: " + y;
+			}
+
+			function roundToHundredths2(number)
+			{
+				var y = Math.round(number * 100) / 100;
+				var output = document.getElementById("lblHundredths2");
+				output.innerHTML = "Rounded to hundredths: " + y;
+			}
+
+			function roundToThousandths2(number)
+			{
+				var y = Math.round(number * 1000) / 1000;
+				var output = document.getElementById("lblThousandths2");
+				output.innerHTML = "Rounded to thousandths: " + y;
+			}
+
+			function compareStrings()
+			{
+				var strInput1 = document.getElementById("strInput1");
+				var strInput2 = document.getElementById("strInput2");
+				var lblStrCmp = document.getElementById("lblStrCmp");
+
+				var s1 = strInput1.value;
+				var s2 = strInput2.value;
+
+				if (s1 < s2)
+					lblStrCmp.innerHTML = "The second string is greater";
+				else if (s1 > s2)
+					lblStrCmp.innerHTML = "The first string is greater";
+				else
+					lblStrCmp.innerHTML = "The two strings are equal";
+			}
+
+			window.addEventListener( "load", start, false );
+		</script>
+	</head>
+	<body>
+		<h1>Chapter 11</h1>
+		<h2>Exercises</h2>
+		<p>
+			<h2>11.1</h2>
+			a) object-based programming language. <br/>
+			b) attributes, behaviors. <br/>
+			c) Math. <br/>
+			d) sending a message to the object. <br/>
+			e) double quotation marks, single quotation marks. <br/>
+			f) 0. <br/>
+			g) indexOf, lastIndexOf. <br/>
+			h) tokenization. <br/>
+			i) computer's local time zone, Coordinated Universal Time (UTC). <br/>
+			j) parse. <br/>
+			k) localStorage. <br/>
+			l) sessionStorage. <br/>
+			m) :first-child. <br/>
+			n) :nth-child.
+		</p>
+		<p>
+			<h2>11.2</h2>
+			<div class="border">
+				<form action="#">
+					<p>
+						<input id="btnNow" type="button" value="Now"/>
+					</p>
+					<p>
+						<input id="btnYesterday" type="button" value="Yesterday"/>
+					</p>
+					<p>
+						<input id="btnTenYearsAgo" type="button" value="Ten Years Ago"/>
+					</p>
+					<p>
+						<input id="btnInOneWeek" type="button" value="In One Week">
+					</p>
+				</form>
+			</div>
+		</p>
+		<p>
+			<h2>11.3</h2>
+			<div class="border">
+				<form id="testForm" action="#">
+					<div style="margin: 10px">
+						<textarea name="output" rows="25" cols="50"></textarea>
+					</div>
+				</form>
+			</div>
+		</p>
+		<p>
+			<h2>11.4</h2>
+			<div class="border">
+				<form action="#">
+					<p>
+						<label>Number to round:
+							<input id="input" type="number">
+						</label>
+						<input id="btnSubmit" type="button" value="Submit">
+					</p>
+				</form>
+				<p>
+					<label id="lblOriginal"></label><br/>
+					<label id="lblInteger"></label><br/>
+					<label id="lblTenths"></label><br/>
+					<label id="lblHundredths"></label><br/>
+					<label id="lblThousandths"></label>
+				</p>
+			</div>
+		</p>
+		<p>
+			<h2>11.5</h2>
+			<div class="border">
+				<form action="#">
+					<p>
+						<label>Number to round:
+							<input id="input2" type="number"/>
+						</label>
+						<input id="btnSubmit2" type="button" value="Submit"/>
+					</p>
+				</form>
+				<p>
+					<label id="lblOriginal2"></label><br/>
+					<label id="lblInteger2"></label><br/>
+					<label id="lblTenths2"></label><br/>
+					<label id="lblHundredths2"></label><br/>
+					<label id="lblThousandths2"></label>
+				</p>
+			</div>
+		</p>
+		<p>
+			<h2>11.6</h2>
+			<div class="border">
+				<form action="#">
+					<p>
+						<label>Enter first string: 
+							<input id="strInput1" type="text" />
+						</label>
+					</p>
+					<p>
+						<label>Enter second string: 
+							<input id="strInput2" type="text" />
+						</label>
+						<input id="btnCompare" type="button" value="Compare" />
+					</p>
+				</form>
+				<p>
+					<label id="lblStrCmp"></label>
+				</p>
+			</div>
+		</p>
+	</body>
+</html>

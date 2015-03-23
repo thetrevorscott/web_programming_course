@@ -1,0 +1,7 @@
+
+.blue 	{ background-color: blue; }
+.red	{ background-color: red; }
+.white 	{ background-color: white; }
+td 		{ width: 4px; height: 4px; }
+.border { border: 2px ridge royalblue; }
+.btn	{ background-color: red; width: 60px; height: 30px; }

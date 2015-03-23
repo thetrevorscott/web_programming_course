@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>CSUCI > IT380 - Assignments</title>
+		<style type="text/css">
+			.border { border: 2px ridge royalblue;
+					 background-color: lightgrey;
+					 width: 50%; }
+			.p, label { padding-left: 2px; }
+		</style>
+		<script type="text/javascript">
+			var total = 0.00;
+			var customerNumber = 1;
+
+			function start()
+			{
+				var button = document.getElementById("calculateButton");
+				button.addEventListener("click", displayVolume, false);
+				var circleButton = document.getElementById("circleCalcBtn");
+				circleButton.addEventListener("click", displayArea, false);
+				var chargeButton = document.getElementById("btnCalculate");
+				chargeButton.addEventListener("click", displayCharges, false);
+			}
+
+			function displayVolume()
+			{
+				var inputField = document.getElementById("radiusField");
+				var radius = parseFloat(inputField.value);
+				var result = document.getElementById("result");
+				result.innerHTML = "Sphere volume is: " + sphereVolume(radius);
+			}
+
+			function displayArea()
+			{
+				var inputField = document.getElementById("circleRadiusField");
+				var radius = parseFloat(inputField.value);
+				var result = document.getElementById("circleResult");
+				result.innerHTML = "Circle area is: " + circleArea(radius);
+			}
+
+			function sphereVolume(radius)
+			{
+				return (4.0 / 3.0) * Math.PI * Math.pow(radius, 3);
+			}
+
+			function circleArea(radius)
+			{
+				return Math.PI * Math.pow(radius, 2);
+			}
+
+			function displayCharges()
+			{
+				var inputField = document.getElementById("inputHours");
+				var hours = parseFloat(inputField.value);
+				var chargeResult = document.getElementById("chargeResult");
+				chargeResult.innerHTML = "Charge for customer " + customerNumber++ + " is: $" + calculateCharges(hours);
+				var runningTotal = document.getElementById("runningTotal");
+				runningTotal.innerHTML = "Receipt total: $" + total.toFixed(2);
+			}
+
+			function calculateCharges(hours)
+			{
+				if (hours > 0) 
+				{
+					var charge = 2.00;
+					if (hours > 3) 
+					{
+						charge += (hours - 3) * 0.50;
+					}
+					if (charge > 10.00) 
+						charge = 10.00;
+					total += charge;
+					return charge.toFixed(2);
+				}
+				else
+					return 0;
+			}
+
+			window.addEventListener("load", start, false);
+		</script>
+	</head>
+	<body>
+		<h1>Chapter 9</h1>
+		<h2>Exercises</h2>
+		<p>
+			<h2>9.1</h2>
+			a) functions. <br/>
+			b) function call. <br/>
+			c) local variable. <br/>
+			d) return. <br/>
+			e) function.
+		</p>
+		<p>
+			<h2>9.2</h2>
+			a) global. <br/>
+			b) function. <br/>
+			c) global. <br/>
+			d) global.
+		</p>
+		<p>
+			<h2>9.3</h2>
+			a) Global. <br/>
+			b) isNaN. <br/>
+			c) escape. <br/>
+			d) eval. <br/>
+			e) unescape.
+		</p>
+		<p>
+			<h2>9.4</h2>
+			a) scope. <br/>
+			b) The right closing brace of the function, return; or return <i>expression</i>; <br/>
+			c) Math.random. <br/>
+			d) local.
+		</p>
+		<p>
+			<h2>9.5</h2>
+			a) Error: method is the incorrect keyword to define a function. <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;Correction: change method to function. <br/>
+			b) Error: the function does not return any value. <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;Correction: remove the variable result and add the statement return x + y; or add the statement return result; <br/>
+			c) Error: a semicolon after the right parenthesis that encloses the parameter list. <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;Correction: remove the semicolon.
+		</p>
+		<p>
+			<h2>9.6</h2>
+			<img src="ch9_9.6.jpg">
+			<div class="border">
+				<form action = "#">
+					<p>
+						<label>Radius:
+							<input id="radiusField" type="number">
+						</label>
+						<input id="calculateButton" type="button" value="Calculate">
+					</p>
+				</form>
+				<p id="result" class="p"></p>
+			</div>
+		</p>
+		<p>
+			<h2>9.7</h2>
+			<img src="ch9_9.7.jpg">
+			<div class="border">
+				<form action = "#">
+					<p>
+						<label>Circle Radius:
+							<input id="circleRadiusField" type="number">
+						</label>
+						<input id="circleCalcBtn" type="button" value="Calculate">
+					</p>
+				</form>
+				<p id="circleResult" class="p"></p>
+			</div>
+		</p>
+		<p>
+			<h2>9.8</h2>
+			<img src="ch9_9.8.jpg">
+			<div class="border">
+				<form action = "#">
+					<p>
+						<label>Hours Parked:
+							<input id="inputHours" type="number">
+						</label>
+						<input id="btnCalculate" type="button" value="Calculate">
+					</p>
+				</form>
+				<p id="chargeResult" class="p"></p>
+				<p id="runningTotal" class="p"></p>
+			</div>
+		</p>
+	</body>
+</html>
